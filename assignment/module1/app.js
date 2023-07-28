@@ -10,8 +10,9 @@
         $scope.dishes = '';
         $scope.message = '';
         $scope.checked = false;
+        $scope.maxDishes = 3;
 
-        $scope.checkLunch = function() {
+        $scope.checkLunch = function(maxDishes) {
             if ($scope.dishes.trim().length === 0) {
                 $scope.empty = true;
             } else {
@@ -22,7 +23,7 @@
                     return v.trim() !== '';
                 });
 
-                if (arrayDishesWithoutEmptys.length <= 3) {
+                if (arrayDishesWithoutEmptys.length <= maxDishes) {
                     $scope.message = 'Enjoy!';
                 } else {
                     $scope.message = 'Too much!';
